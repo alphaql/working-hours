@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  db:
+    image: mariadb
+    restart: always
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: django_db
+      MYSQL_USER: django_user
+      MYSQL_PASSWORD: django_user
+    ports:
+      - "3336:3306"
+  web:
+    build: .
+    container_name: web
+    volumes:
+      - .:/code
+    command: python /code/manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8081:8000"
+    depends_on:
+          - db
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_USER=django_user
+      - PMA_PASSWORD=django_user
+    restart: always
+    ports:
+      - "8082:80"
+    volumes:
+      - /sessions
