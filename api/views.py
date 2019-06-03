@@ -3,7 +3,6 @@ from rest_framework import (
 )
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from rest_framework import generics
 
 from api.serializers.user import UserSerializer
 from api.serializers.working_hours import (

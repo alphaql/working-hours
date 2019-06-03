@@ -1,6 +1,5 @@
 from django.contrib import admin
 from working_hours.models import WorkingHour
-from datetime import timedelta
 
 class WHAdmin(admin.ModelAdmin):
     list_display = ('username',
