@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'api.apps.ApiConfig',
     'users.apps.UsersConfig',
+    'working_hours.apps.WorkingHoursConfig',
 ]
 
 REST_FRAMEWORK = {
