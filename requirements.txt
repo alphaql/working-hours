@@ -5,3 +5,4 @@ ipdb
 djangorestframework
 markdown
 django-filter
+django-import-export

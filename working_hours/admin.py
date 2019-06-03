@@ -1,7 +1,14 @@
 from django.contrib import admin
 from working_hours.models import WorkingHour
+from import_export import resources
+from import_export.admin import ImportExportModelAdmin
 
-class WHAdmin(admin.ModelAdmin):
+
+class WHResouce(resources.ModelResource):
+    class Meta:
+        model = WorkingHour
+
+class WHAdmin(ImportExportModelAdmin):
     list_display = ('username',
                     'week_day',
                     'start_time',
