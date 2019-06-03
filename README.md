@@ -42,3 +42,11 @@ these commands in local:
 django-admin startproject django_project .
 django-admin startapp api
 ```
+
+## Working hours
+
+Endpoints: 
+  - **Registered days:** 
+        http://localhost:8081/api/v0/working-hours/
+  - **Summary of the week:**
+        http://localhost:8081/api/v0/working-hours/week/23
