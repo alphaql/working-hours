@@ -43,8 +43,12 @@ class WorkingHoursWeekViewSet(viewsets.ModelViewSet):
             WorkingHour.total_extra_hours_in_week(kwargs["week"]), 2)
         total_mandatory_hours_in_week = round(
             WorkingHour.total_mandatory_hours_in_week(kwargs["week"]), 2)
+        first_date_from_week = WorkingHour.first_date_from_week(kwargs['week'])
+        end_date_from_week = WorkingHour.end_date_from_week(kwargs['week'])
 
         data = {
+            'first_date_from_week': first_date_from_week,
+            'end_date_from_week': end_date_from_week,
             'total_worked_hours_in_week': total_worked_hours_in_week,
             'total_extra_hours_in_week': total_extra_hours_in_week,
             'total_mandatory_hours_in_week': total_mandatory_hours_in_week,

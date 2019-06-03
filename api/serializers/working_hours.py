@@ -24,9 +24,8 @@ class WorkingHourSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class WorkingHourWeekSerializer(serializers.Serializer):
+    first_date_from_week = serializers.DateField()
+    end_date_from_week = serializers.DateField()
     total_worked_hours_in_week = serializers.FloatField()
     total_extra_hours_in_week = serializers.FloatField()
     total_mandatory_hours_in_week = serializers.FloatField()
-
-    class Meta:
-        fields = ('total_in_week',)

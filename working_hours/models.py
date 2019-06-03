@@ -2,6 +2,10 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from datetime import (
+    datetime,
+    timedelta
+)
 
 from users.models import User
 
@@ -34,6 +38,23 @@ class WorkingHour(models.Model):
     @property
     def week_number(self):
         return int(self.date.isocalendar()[1])
+
+    @staticmethod
+    def first_date_from_week(p_week, p_year=2019):
+
+        firstdayofweek = datetime.strptime(
+            f'{p_year}-W{int(p_week) - 1}-1', "%Y-W%W-%w").date()
+        return firstdayofweek
+
+    @staticmethod
+    def end_date_from_week(p_week, p_year=2019):
+
+        firstdayofweek = datetime.strptime(
+            f'{p_year}-W{int(p_week) - 1}-1', "%Y-W%W-%w").date()
+
+        lastdayofweek = firstdayofweek + timedelta(days=6.9)
+
+        return lastdayofweek
 
     @staticmethod
     def total_worked_hours_in_week(week):
