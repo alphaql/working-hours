@@ -47,6 +47,8 @@ django-admin startapp api
 
 Endpoints: 
   - **Registered days:** 
+  
         http://localhost:8081/api/v0/working-hours/
   - **Summary of the week:**
-        http://localhost:8081/api/v0/working-hours/week/23
+  
+        http://localhost:8081/api/v0/working-hours/week/23/year/2019/user/username/
