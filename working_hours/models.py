@@ -57,8 +57,9 @@ class WorkingHour(models.Model):
         return lastdayofweek
 
     @staticmethod
-    def total_worked_hours_in_week(week):
-        days_in_week = WorkingHour.objects.filter(date__week=week)
+    def total_worked_hours_in_week(week, year):
+        days_in_week = WorkingHour.objects.filter(date__week=week,
+                                                  date__year=year)
 
         sum = 0
 
@@ -68,8 +69,9 @@ class WorkingHour(models.Model):
         return sum
 
     @staticmethod
-    def total_mandatory_hours_in_week(week):
-        days_in_week = WorkingHour.objects.filter(date__week=week)
+    def total_mandatory_hours_in_week(week, year):
+        days_in_week = WorkingHour.objects.filter(date__week=week,
+                                                  date__year=year)
 
         sum = 0
 
@@ -79,8 +81,9 @@ class WorkingHour(models.Model):
         return sum
 
     @staticmethod
-    def total_extra_hours_in_week(week):
-        days_in_week = WorkingHour.objects.filter(date__week=week)
+    def total_extra_hours_in_week(week, year):
+        days_in_week = WorkingHour.objects.filter(date__week=week,
+                                                  date__year=year)
 
         sum = 0
 
