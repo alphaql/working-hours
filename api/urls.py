@@ -11,7 +11,8 @@ from api.views import (
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'working-hours', WorkingHoursViewSet)
-router.register(r'working-hours/week/(?P<week>.+)/year/(?P<year>.+)',
+router.register(r'working-hours/week/(?P<week>.+)/year/(?P<year>.+)/user/('
+                r'?P<username>.+)',
                 WorkingHoursWeekViewSet,
                 basename='WorkingHour')
 

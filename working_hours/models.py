@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 from __future__ import unicode_literals
 
 from django.db import models
@@ -57,9 +58,10 @@ class WorkingHour(models.Model):
         return lastdayofweek
 
     @staticmethod
-    def total_worked_hours_in_week(week, year):
+    def total_worked_hours_in_week(week, year, username):
         days_in_week = WorkingHour.objects.filter(date__week=week,
-                                                  date__year=year)
+                                                  date__year=year,
+                                                  user__username=username)
 
         sum = 0
 
@@ -69,9 +71,10 @@ class WorkingHour(models.Model):
         return sum
 
     @staticmethod
-    def total_mandatory_hours_in_week(week, year):
+    def total_mandatory_hours_in_week(week, year, username):
         days_in_week = WorkingHour.objects.filter(date__week=week,
-                                                  date__year=year)
+                                                  date__year=year,
+                                                  user__username=username)
 
         sum = 0
 
@@ -81,9 +84,10 @@ class WorkingHour(models.Model):
         return sum
 
     @staticmethod
-    def total_extra_hours_in_week(week, year):
+    def total_extra_hours_in_week(week, year, username):
         days_in_week = WorkingHour.objects.filter(date__week=week,
-                                                  date__year=year)
+                                                  date__year=year,
+                                                  user__username=username)
 
         sum = 0
 

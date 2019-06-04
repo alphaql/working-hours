@@ -39,17 +39,25 @@ class WorkingHoursWeekViewSet(viewsets.ModelViewSet):
     def list(self, request, *args, **kwargs):
         total_worked_hours_in_week = round(
             WorkingHour.total_worked_hours_in_week(kwargs["week"],
-                                                   kwargs["year"]))
+                                                   kwargs["year"],
+                                                   kwargs["username"],
+                                                   ))
         total_extra_hours_in_week = round(
-            WorkingHour.total_extra_hours_in_week(kwargs["week"], kwargs[
-                "year"]), 2)
+            WorkingHour.total_extra_hours_in_week(
+                kwargs["week"],
+                kwargs["year"],
+                kwargs["username"]), 2)
         total_mandatory_hours_in_week = round(
-            WorkingHour.total_mandatory_hours_in_week(kwargs["week"], kwargs[
-                "year"]), 2)
+            WorkingHour.total_mandatory_hours_in_week(
+                kwargs["week"],
+                kwargs["year"],
+                kwargs["username"]), 2)
         first_date_from_week = WorkingHour.first_date_from_week(
-            kwargs['week'], kwargs["year"])
-        end_date_from_week = WorkingHour.end_date_from_week(kwargs['week'],
-                                                            kwargs["year"])
+            kwargs['week'],
+            kwargs["year"])
+        end_date_from_week = WorkingHour.end_date_from_week(
+            kwargs['week'],
+            kwargs["year"])
 
         data = {
             'first_date_from_week': first_date_from_week,
