@@ -15,9 +15,8 @@ router_v1 = routers.DefaultRouter()
 router_v0.register(r'users', UserViewSet)
 router_v0.register(r'working-hours', WorkingHoursViewSet)
 router_v0.register(r'working-hours/week/(?P<week>.+)/year/(?P<year>.+)/user/('
-                r'?P<username>.+)',
-                WorkingHoursWeekViewSet,
-                basename='workinghours')
+                   r'?P<username>.+)', WorkingHoursWeekViewSet,
+                   basename='workinghours')
 
 router_v1.register(r'games', GameViewSet, basename='games')
 

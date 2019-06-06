@@ -7,7 +7,7 @@ class GameViewSet(GeneralViewSet):
         path_file = 'resources/json/test-1.json'
 
         self.set_file_path(path_file)
-        # self.set_data_from_str('{"test":1}')
+        # self.set_d    ata_from_str('{"test":1}')
 
-        return super(GameViewSet,self).list(request, args, kwargs)
+        return super(GameViewSet, self).list(request, args, kwargs)
 
