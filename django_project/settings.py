@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'api.apps.ApiConfig',
     'users.apps.UsersConfig',
+    'games.apps.GamesConfig',
     'working_hours.apps.WorkingHoursConfig',
 ]
 

@@ -1,21 +1,28 @@
 from django.conf.urls import url, include
 from rest_framework import routers
-from api.views import (
-    UserViewSet,
+from api.v0.views.users import UserViewSet
+from api.v1.views.games import GameViewSet
+from api.v0.views.working_hours import (
     WorkingHoursViewSet,
     WorkingHoursWeekViewSet,
 )
 
 
 # Routers provide an easy way of automatically determining the URL conf.
-router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
-router.register(r'working-hours', WorkingHoursViewSet)
-router.register(r'working-hours/week/(?P<week>.+)/year/(?P<year>.+)/user/('
+router_v0 = routers.DefaultRouter()
+router_v1 = routers.DefaultRouter()
+
+router_v0.register(r'users', UserViewSet)
+router_v0.register(r'working-hours', WorkingHoursViewSet)
+router_v0.register(r'working-hours/week/(?P<week>.+)/year/(?P<year>.+)/user/('
                 r'?P<username>.+)',
                 WorkingHoursWeekViewSet,
-                basename='WorkingHour')
+                basename='workinghours')
+
+router_v1.register(r'games', GameViewSet, basename='games')
+
 
 urlpatterns = [
-    url(r'^', include(router.urls)),
+    url(r'v0/', include(router_v0.urls)),
+    url(r'v1/', include(router_v1.urls)),
 ]

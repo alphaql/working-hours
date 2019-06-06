@@ -1,0 +1,8 @@
+{
+  "test": "test-response",
+  "test-2": "test-response-2",
+  "list-example": [
+    "data-1",
+    "data-2"
+  ]
+}

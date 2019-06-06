@@ -4,21 +4,11 @@ from rest_framework import (
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from api.serializers.user import UserSerializer
-from api.serializers.working_hours import (
+from api.v0.serializers.working_hours import (
     WorkingHourSerializer,
     WorkingHourWeekSerializer,
 )
-from users.models import User
 from working_hours.models import WorkingHour
-
-
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    http_method_names = ['options', 'patch', 'put', 'get', 'post']
-    resource_name = 'customers'
-    serializer_class = UserSerializer
-    permission_classes = (IsAuthenticated,)
 
 
 class WorkingHoursViewSet(viewsets.ModelViewSet):
